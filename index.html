@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
+<title>Camp Tracker</title>
+<!-- Install-as-app (iOS + Android) -->
+<link rel="manifest" href="manifest.webmanifest" />
+<meta name="theme-color" content="#0b0c0e" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Camp" />
+<link rel="apple-touch-icon" href="app-icon-180.png" />
+<link rel="icon" type="image/png" href="app-icon-192.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; height: 100%; background: #0b0c0e; overscroll-behavior: none; }
+  #root { height: 100%; }
+  body { font-family: 'Hanken Grotesk', system-ui, sans-serif; }
+  input, textarea, button { font-family: inherit; }
+  input::placeholder, textarea::placeholder { color: #5a616b; }
+  /* scrollbars */
+  ::-webkit-scrollbar { width: 0; height: 0; }
+  /* date input icon tint */
+  input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.7); cursor: pointer; }
+  @keyframes sheetUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+  @keyframes pinShake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-9px)} 40%{transform:translateX(8px)} 60%{transform:translateX(-6px)} 80%{transform:translateX(4px)} }
+  button:active { opacity: 0.92; }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" rx="22" fill="#0b0c0e"/>
+    <g transform="translate(50 50)" fill="#f5c518">
+      <rect x="-19" y="-24" width="38" height="42" rx="19"/>
+      <ellipse cx="-21" cy="0" rx="9" ry="10"/>
+      <rect x="-16" y="16" width="32" height="17" rx="6" fill="#d9a90f"/>
+    </g>
+  </svg>
+</template>
+<div id="root">
+  <div id="boot" style="position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:#0b0c0e;color:#f3f5f7;font-family:'Hanken Grotesk',system-ui,sans-serif;">
+    <div style="width:46px;height:46px;border:none;display:flex;align-items:center;justify-content:center;">
+      <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#f5c518" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h7a4 4 0 0 1 4 4v1a3 3 0 0 1-3 3H9"/><path d="M6 4v10a4 4 0 0 0 4 4h2a3 3 0 0 0 3-3"/></svg>
+    </div>
+    <div style="font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#888e97;">Loading camp…</div>
+    <div id="boot-dot" style="width:8px;height:8px;border-radius:99px;background:#f5c518;animation:bootPulse 0.9s ease-in-out infinite;"></div>
+  </div>
+</div>
+<style>@keyframes bootPulse{0%,100%{opacity:0.25;transform:scale(0.8)}50%{opacity:1;transform:scale(1.3)}}</style>
+
+<script type="text/babel" src="app/program.jsx"></script>
+<script type="text/babel" src="app/store.jsx"></script>
+<script type="text/babel" src="app/ui.jsx"></script>
+<script type="text/babel" src="app/chart.jsx"></script>
+<script type="text/babel" src="app/lock.jsx"></script>
+<script type="text/babel" src="app/screen-dashboard.jsx"></script>
+<script type="text/babel" src="app/screen-calendar.jsx"></script>
+<script type="text/babel" src="app/screen-sheets.jsx"></script>
+<script type="text/babel" src="app/screen-weight.jsx"></script>
+<script type="text/babel" src="app/screen-checkin.jsx"></script>
+<script type="text/babel" src="app/screen-progress.jsx"></script>
+<script type="text/babel" src="app/screen-settings.jsx"></script>
+<script type="text/babel" src="app/screen-app.jsx"></script>
+</body>
+</html>
